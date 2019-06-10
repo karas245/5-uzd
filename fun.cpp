@@ -24,6 +24,31 @@ bool ifurl(string wor)
         return false;
     }
 }
+void lithuanianletters(string &wor)
+{
+    for(int i=0;i<wor.length();i++)
+    {
+        if(wor[i]=='À')
+            wor[i]='à';
+        else if(wor[i]=='È')
+            wor[i]='è';
+        else if(wor[i]=='Æ')
+            wor[i]='æ';
+        else if(wor[i]=='Ë')
+            wor[i]='ë';
+        else if(wor[i]=='Á')
+            wor[i]='á';
+        else if(wor[i]=='Ð')
+            wor[i]='ð';
+        else if(wor[i]=='Ø')
+            wor[i]='ø';
+        else if(wor[i]=='Û')
+            wor[i]='û';
+        else if(wor[i]=='Þ')
+            wor[i]='þ';
+    }
+
+}
 void read(Words &word)
 {
     ifstream fd("text1.txt");
@@ -44,6 +69,7 @@ void read(Words &word)
             else
             {
                 fix(wor);
+                lithuanianletters(wor);
                 int n=0;
                 if(eil!=0)
                 {
