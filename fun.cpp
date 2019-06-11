@@ -24,30 +24,37 @@ bool ifurl(string wor)
         return false;
     }
 }
+/*
 void lithuanianletters(string &wor)
 {
     for(int i=0;i<wor.length();i++)
     {
-        if(wor[i]=='À')
-            wor[i]='à';
-        else if(wor[i]=='È')
-            wor[i]='è';
-        else if(wor[i]=='Æ')
-            wor[i]='æ';
-        else if(wor[i]=='Ë')
-            wor[i]='ë';
-        else if(wor[i]=='Á')
-            wor[i]='á';
-        else if(wor[i]=='Ð')
-            wor[i]='ð';
-        else if(wor[i]=='Ø')
-            wor[i]='ø';
-        else if(wor[i]=='Û')
-            wor[i]='û';
-        else if(wor[i]=='Þ')
-            wor[i]='þ';
+        if(wor[i]=='Ä„')
+            wor[i]='Ã ';
+        else if(wor[i]=='Ãˆ')
+            wor[i]='Ã¨';
+        else if(wor[i]=='Ã†')
+            wor[i]='Ã¦';
+        else if(wor[i]=='Ã‹')
+            wor[i]='Ã«';
+        else if(wor[i]=='Ã')
+            wor[i]='Ã¡';
+        else if(wor[i]=='Ã')
+            wor[i]='Ã°';
+        else if(wor[i]=='Ã˜')
+            wor[i]='Ã¸';
+        else if(wor[i]=='Ã›')
+            wor[i]='Ã»';
+        else if(wor[i]=='Ãž')
+            wor[i]='Ã¾';
     }
 
+}*/
+void sort(Words &word)
+{
+    std::sort(word.w.begin(), word.w.end());
+    /*for(auto i:word.w)
+        cout << i << endl;*/
 }
 void read(Words &word)
 {
@@ -69,7 +76,7 @@ void read(Words &word)
             else
             {
                 fix(wor);
-                lithuanianletters(wor);
+                //lithuanianletters(wor);
                 int n=0;
                 if(eil!=0)
                 {
@@ -92,10 +99,36 @@ void read(Words &word)
         }
         eil++;
     }
+    sort(word);
 }
 void write(Words &word)
 {
     ofstream fr("results.txt");
+    int d=0;
+    for(auto w:word.w)
+    {
+        if(d<word.word_map[w])
+            d=word.word_map[w];
+    }
+
+    for(int i=2;i<=d;i++)
+    {
+        for(auto w: word.w)
+        {
+            if(word.word_map[w]==i)
+            {
+                fr << w  << " => " << word.word_map[w] << " |  ";
+
+                for(auto elem: word.where_map[w])
+                {
+                        fr << elem << " ";
+                }
+                fr << endl;
+            }
+
+        }
+    }
+    /*
     for(int i=0;i<word.w.size();i++)
     {
         if(word.word_map[word.w[i]]>1)
@@ -108,7 +141,7 @@ void write(Words &word)
             }
             fr << endl;
         }
-    }
+    }*/
     for(auto u: word.url)
         fr << u << endl;
 
