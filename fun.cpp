@@ -94,6 +94,13 @@ void read(Words &word)
 
 
                 word.word_map[wor]++;
+                int a=0;
+                for(auto where: word.where_map[wor])
+                {
+                    if(eil==where)
+                        a++;
+                }
+                if(a==0)
                 word.where_map[wor].push_back(eil);
             }
         }
