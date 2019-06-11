@@ -24,6 +24,7 @@ bool ifurl(string wor)
         return false;
     }
 }
+
 /*
 void lithuanianletters(string &wor)
 {
@@ -53,8 +54,7 @@ void lithuanianletters(string &wor)
 void sort(Words &word)
 {
     std::sort(word.w.begin(), word.w.end());
-    /*for(auto i:word.w)
-        cout << i << endl;*/
+
 }
 void read(Words &word)
 {
