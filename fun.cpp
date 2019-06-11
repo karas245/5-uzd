@@ -117,7 +117,7 @@ void write(Words &word)
         if(d<word.word_map[w])
             d=word.word_map[w];
     }
-
+    int n=1;
     for(int i=2;i<=d;i++)
     {
         for(auto w: word.w)
@@ -126,11 +126,22 @@ void write(Words &word)
             {
                 fr << w  << " => " << word.word_map[w] << " |  ";
 
+                int a=0;
                 for(auto elem: word.where_map[w])
                 {
                         fr << elem << " ";
+                        a++;
                 }
+                if(n%2!=0)
+                {
+                    fr <<std::right << std::setw(70-a);
+                }
+
+
+                if(n%2==0)
                 fr << endl;
+
+                n++;
             }
 
         }
@@ -149,6 +160,8 @@ void write(Words &word)
             fr << endl;
         }
     }*/
+    fr << endl;
+    fr << endl;
     for(auto u: word.url)
         fr << u << endl;
 
