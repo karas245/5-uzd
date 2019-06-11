@@ -42,6 +42,7 @@ struct Words
 
 void fix(string &wor);
 bool ifurl(string wor);
+void lithuanianletters(string &wor);
 void read(Words &word);
 void write(Words &word);
 
